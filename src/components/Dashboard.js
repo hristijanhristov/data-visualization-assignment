@@ -12,7 +12,7 @@ function Dashboard({data}) {
     const [processedData, setProcessedData] = useState([]);
 
     useEffect(() => {
-        // Count the number of variants per chromosome
+
         let chromCounts = {};
 
         data.forEach(variant => {
@@ -23,7 +23,6 @@ function Dashboard({data}) {
             }
         });
 
-        // Convert to the array format expected by BarChart
         let dataArray = [];
         for (let chrom in chromCounts) {
             dataArray.push({chrom, count: chromCounts[chrom]});
@@ -35,22 +34,14 @@ function Dashboard({data}) {
     return (
         <div className="dashboard">
             <h1>Genome Visualization Dashboard</h1>
-            <br/><br/>
             <div className="graphs-wrapper">
                 <BarChart data={processedData}/>
-                <br/><br/>
                 <BarChartFilter data={data}/>
-                <br/><br/>
                 <BarChartType data={data}/>
-                <br/><br/>
                 <HistogramQuality data={data}/>
-                <br/><br/>
                 <ScatterPlot data={data}/>
-                <br/><br/>
                 <ScatterPlotAltAD data={data}/>
-                <br/><br/>
                 <ScatterPlotReferenceAD data={data}/>
-                <br/><br/>
                 <ScatterPlotAD data={data}/>
             </div>
         </div>

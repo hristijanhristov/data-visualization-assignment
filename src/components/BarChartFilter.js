@@ -6,13 +6,11 @@ function BarChartFilter({ data }) {
 
     useEffect(() => {
         const margin = {top: 50, right: 20, bottom: 150, left: 60};
-        const width = 960 - margin.left - margin.right; // Increased SVG width
+        const width = 960 - margin.left - margin.right;
         const height = 500 - margin.top - margin.bottom;
 
-        // Create a new array by splitting the filter field of each data point
         const allFilters = data.flatMap(d => d.filter.split(';'));
 
-        // Create an object where keys are unique filter types and values are their counts
         const filterCounts = allFilters.reduce((counts, filter) => {
             counts[filter] = (counts[filter] || 0) + 1;
             return counts;
@@ -72,7 +70,7 @@ function BarChartFilter({ data }) {
             .text("Filter and Frequency");
 
         svg.selectAll(".bar")
-            .data(Object.entries(filterCounts)) // Convert our object to an array of [key, value] pairs
+            .data(Object.entries(filterCounts))
             .enter().append("rect")
             .attr("class", "bar")
             .attr("x", d => x(d[0]))

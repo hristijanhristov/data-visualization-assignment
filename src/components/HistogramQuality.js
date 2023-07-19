@@ -36,7 +36,6 @@ function HistogramQuality({ data }) {
             .attr("class", "bar")
             .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; });
 
-        // Define the div for the tooltip
         const div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);

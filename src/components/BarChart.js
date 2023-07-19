@@ -68,7 +68,7 @@ function BarChart({ data }) {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                tooltip.html(`<div class="tooltip">Chromosome: ${d.chrom} <br/> Count: ${d.count}</div>`)
+                tooltip.html(`Chromosome: ${d.chrom} <br/> Count: ${d.count}`)
                     .style("left", `${event.pageX}px`)
                     .style("top", `${event.pageY - 28}px`);
             })

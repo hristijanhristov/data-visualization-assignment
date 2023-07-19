@@ -53,7 +53,6 @@ function BarChartType({ data }) {
             .style("font-size", "24px")
             .text("Type and Frequency");
 
-        // Define the div for the tooltip
         const div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
